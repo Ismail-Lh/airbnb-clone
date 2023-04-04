@@ -2,10 +2,13 @@
 
 import { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
+
+import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
 import Avatar from '../Avatar';
 import MenuItems from './MenuItems';
 
 function UserMenu() {
+  const { onOpen } = useRegisterModalStore((state) => state);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleOpen = () => setIsOpen((value) => !value);
@@ -37,7 +40,7 @@ function UserMenu() {
           <div className="flex flex-col cursor-pointer">
             <>
               <MenuItems label="Login" onClick={() => {}} />
-              <MenuItems label="Sign up" onClick={() => {}} />
+              <MenuItems label="Sign up" onClick={onOpen} />
             </>
           </div>
         </div>
