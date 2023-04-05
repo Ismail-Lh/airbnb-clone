@@ -98,6 +98,7 @@ function Modal({
                     label={actionLabel}
                   />
                 </div>
+                {footer}
               </div>
             </div>
           </div>
