@@ -108,14 +108,14 @@ function Modal({
   );
 }
 
-Modal.defaultProps = {
-  isOpen: false,
-  disabled: false,
-  title: '',
-  secondaryActionLabel: '',
-  body: null,
-  footer: null,
-  secondaryAction: null,
-};
+// Modal.defaultProps = {
+//   isOpen: false,
+//   disabled: false,
+//   title: '',
+//   secondaryActionLabel: '',
+//   body: null,
+//   footer: null,
+//   secondaryAction: null,
+// };
 
 export default Modal;

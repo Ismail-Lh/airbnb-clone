@@ -1,14 +1,23 @@
 'use client';
 
 import { useState } from 'react';
+import { signOut } from 'next-auth/react';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { User } from '@prisma/client';
 
 import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
-import Avatar from '../Avatar';
+import useLoginModalStore from '@/app/stores/useLoginModalStore';
 import MenuItems from './MenuItems';
+import Avatar from '../Avatar';
 
-function UserMenu() {
-  const { onOpen } = useRegisterModalStore((state) => state);
+interface UserMenuProps {
+  currentUser?: User | null;
+}
+
+function UserMenu({ currentUser }: UserMenuProps) {
+  const { onOpen: openRegisterModal } = useRegisterModalStore((state) => state);
+  const { onOpen: openLoginModal } = useLoginModalStore((state) => state);
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleOpen = () => setIsOpen((value) => !value);
@@ -38,10 +47,22 @@ function UserMenu() {
       {isOpen && (
         <div className="absolute right-0 top-12 bg-white w-[40vw] md:w-3/4 overflow-hidden text-sm rounded-xl shadow-sm">
           <div className="flex flex-col cursor-pointer">
-            <>
-              <MenuItems label="Login" onClick={() => {}} />
-              <MenuItems label="Sign up" onClick={onOpen} />
-            </>
+            {currentUser ? (
+              <>
+                <MenuItems label="My trips" onClick={() => {}} />
+                <MenuItems label="My favorites" onClick={() => {}} />
+                <MenuItems label="My reservations" onClick={() => {}} />
+                <MenuItems label="My properties" onClick={() => {}} />
+                <MenuItems label="Airbnb my home" onClick={() => {}} />
+                <hr />
+                <MenuItems label="Logout" onClick={() => signOut()} />
+              </>
+            ) : (
+              <>
+                <MenuItems label="Login" onClick={openLoginModal} />
+                <MenuItems label="Sign up" onClick={openRegisterModal} />
+              </>
+            )}
           </div>
         </div>
       )}

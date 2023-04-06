@@ -38,11 +38,4 @@ function Button({
   );
 }
 
-Button.defaultProps = {
-  disabled: false,
-  outline: false,
-  small: false,
-  icon: null,
-};
-
 export default Button;

@@ -59,11 +59,4 @@ function Input({
   );
 }
 
-Input.defaultProps = {
-  type: 'text',
-  required: false,
-  disabled: false,
-  formatPrice: false,
-};
-
 export default Input;

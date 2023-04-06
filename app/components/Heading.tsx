@@ -15,9 +15,4 @@ function Heading({ title, subTitle, center }: HeadingProps) {
   );
 }
 
-Heading.defaultProps = {
-  subTitle: null,
-  center: false,
-};
-
 export default Heading;
