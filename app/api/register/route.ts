@@ -14,6 +14,9 @@ export async function POST(req: Request) {
     data: { name, email, hashedPassword },
   });
 
+  // !: Remove the hashedPassword
+  user.hashedPassword = null;
+
   return NextResponse.json(user);
 }
 
