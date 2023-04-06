@@ -1,6 +1,6 @@
 {
   "extends": [
-    "next/core-web-vitals",
+    "next",
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
