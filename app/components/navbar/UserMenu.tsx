@@ -3,15 +3,16 @@
 import { useState } from 'react';
 import { signOut } from 'next-auth/react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { User } from '@prisma/client';
 
 import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
 import useLoginModalStore from '@/app/stores/useLoginModalStore';
+import { SafeUser } from '@/app/types';
+
 import MenuItems from './MenuItems';
 import Avatar from '../Avatar';
 
 interface UserMenuProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 function UserMenu({ currentUser }: UserMenuProps) {
@@ -39,7 +40,7 @@ function UserMenu({ currentUser }: UserMenuProps) {
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar />
+            <Avatar imgSrc={currentUser?.image} />
           </div>
         </button>
       </div>

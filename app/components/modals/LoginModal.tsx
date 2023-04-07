@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 'use client';
 
 import { useState } from 'react';
@@ -78,19 +80,21 @@ function LoginModal() {
       <Button
         outline
         label="Continue with Google"
-        onClick={() => {}}
+        onClick={() => signIn('google')}
         icon={FcGoogle}
       />
       <Button
         outline
         label="Continue with Github"
-        onClick={() => {}}
+        onClick={() => signIn('github')}
         icon={AiFillGithub}
       />
       <div className="font-light text-neutral-500 text-center mt-4">
         <div className="flex flex-row items-center justify-center gap-2">
-          <p>Already have an account?</p>
-          <p className="text-rose-500 cursor-pointer hover:underline">Log in</p>
+          <p>You don't have an account?</p>
+          <p className="text-rose-500 cursor-pointer hover:underline">
+            Create an account
+          </p>
         </div>
       </div>
     </div>

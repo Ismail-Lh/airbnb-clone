@@ -2,12 +2,16 @@
 
 import Image from 'next/image';
 
-function Avatar() {
+interface AvatarProps {
+  imgSrc: string | null | undefined;
+}
+
+function Avatar({ imgSrc }: AvatarProps) {
   return (
     <Image
       className="rounded-full"
       alt="avatar"
-      src="/images/placeholder.jpg"
+      src={imgSrc || '/images/placeholder.jpg'}
       height="30"
       width="30"
     />
