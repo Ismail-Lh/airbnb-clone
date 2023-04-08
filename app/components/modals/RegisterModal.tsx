@@ -10,13 +10,15 @@ import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 
 import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
+import useLoginModalStore from '@/app/stores/useLoginModalStore';
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
 import Button from '../Button';
 
 function RegisterModal() {
-  const { isOpen, onClose, onOpen } = useRegisterModalStore((state) => state);
+  const registerModal = useRegisterModalStore((state) => state);
+  const loginModal = useLoginModalStore((state) => state);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -42,6 +44,11 @@ function RegisterModal() {
     }
 
     setIsLoading(false);
+  };
+
+  const toggleModal = () => {
+    registerModal.onClose();
+    loginModal.onOpen();
   };
 
   const bodyContent = (
@@ -90,7 +97,13 @@ function RegisterModal() {
       <div className="font-light text-neutral-500 text-center mt-4">
         <div className="flex flex-row items-center justify-center gap-2">
           <p>Already have an account?</p>
-          <p className="text-rose-500 cursor-pointer hover:underline">Log in</p>
+          <button
+            type="button"
+            onClick={toggleModal}
+            className="text-rose-500 cursor-pointer hover:underline"
+          >
+            Log in
+          </button>
         </div>
       </div>
     </div>
@@ -99,11 +112,11 @@ function RegisterModal() {
   return (
     <Modal
       disabled={isLoading}
-      isOpen={isOpen}
+      isOpen={registerModal.isOpen}
       title="Register"
       actionLabel="Continue"
       onSubmit={handleSubmit(onSubmit)}
-      onClose={onClose}
+      onClose={registerModal.onClose}
       body={bodyContent}
       footer={footerContent}
     />

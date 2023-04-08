@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
 'use client';
 
 import { ReactElement, useState, useEffect } from 'react';
@@ -60,7 +63,10 @@ function Modal({
 
   return (
     <>
-      <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto bg-neutral-800/70 outline-none focus:outline-none fixed inset-0 z-50">
+      <div
+        onClick={onClose}
+        className="flex justify-center items-center overflow-x-hidden overflow-y-auto bg-neutral-800/70 outline-none focus:outline-none fixed inset-0 z-50"
+      >
         <div className="relative w-full h-full md:w-4/6 lg:w-3/6 xl:w-2/5 lg:h-auto md:h-auto mx-6 my-auto">
           <div
             className={`translate duration-300 ${
