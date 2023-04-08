@@ -48,7 +48,7 @@ function LoginModal() {
       }
 
       if (callback?.error) {
-        toast.success(<b>{callback.error}</b>);
+        toast.error(<b>{callback.error}</b>);
       }
     });
   };
