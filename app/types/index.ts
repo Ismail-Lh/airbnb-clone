@@ -8,3 +8,11 @@ export type SafeUser = Omit<
   updatedAt: string;
   emailVerified: string | null;
 };
+
+export type CountrySelectValues = {
+  value: string;
+  label: string;
+  flag: string;
+  region: string;
+  latlng: number[];
+};
