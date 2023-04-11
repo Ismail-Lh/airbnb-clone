@@ -48,14 +48,14 @@ model Listing {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   userId        String   @db.ObjectId
   title         String
-  decsription   String
+  description   String
   imageSrc      String
   locationValue String
   category      String
   createdAt     DateTime @default(now())
   roomCount     Int
   bathroomCount Int
-  geustCount    Int
+  guestCount    Int
   price         Int
 
   user         User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
