@@ -1,22 +1,21 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 import useRentModalStore from '@/app/stores/useRentModalStore';
 import { categories } from '@/app/utils/constants';
-
-import Modal from './Modal';
 import Heading from '../Heading';
 import CategoryInput from '../inputs/CategoryInput';
-import CountrySelect from '../inputs/CountrySelect';
 import Counter from '../inputs/Counter';
+import CountrySelect from '../inputs/CountrySelect';
 import ImageUpload from '../inputs/ImageUpload';
 import Input from '../inputs/Input';
+import Modal from './Modal';
 
 enum STEPS {
   CATEGORY = 0,
@@ -119,7 +118,7 @@ function RentModal() {
         title="Which of these best describes your place?"
         subTitle="Pick a category"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
+      <div className="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
         {categories.map(({ label, icon }) => (
           <div key={label} className="col-span-1">
             <CategoryInput

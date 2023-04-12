@@ -1,11 +1,14 @@
 {
+  "root": true,
   "extends": [
-    "next",
+    "next/core-web-vitals",
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
+    "plugin:tailwindcss/recommended",
     "prettier"
   ],
+  "plugins": ["tailwindcss"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -18,5 +21,8 @@
     "react/jsx-props-no-spreading": ["warn"],
     "no-unused-vars": ["warn"],
     "@typescript-eslint/no-unused-vars": ["warn"]
+  },
+  "next": {
+    "rootDir": true
   }
 }
