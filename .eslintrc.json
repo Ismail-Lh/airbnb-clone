@@ -1,7 +1,6 @@
 {
-  "root": true,
   "extends": [
-    "next/core-web-vitals",
+    "next",
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
@@ -21,8 +20,5 @@
     "react/jsx-props-no-spreading": ["warn"],
     "no-unused-vars": ["warn"],
     "@typescript-eslint/no-unused-vars": ["warn"]
-  },
-  "next": {
-    "rootDir": true
   }
 }

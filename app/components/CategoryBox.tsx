@@ -40,12 +40,12 @@ function CategoryBox({ label, icon: Icon, selected }: IProps) {
     <button
       type="button"
       onClick={handleClick}
-      className={`flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer ${
+      className={`flex cursor-pointer flex-col items-center justify-center gap-2 border-b-2 p-3 transition hover:text-neutral-800 ${
         selected ? 'border-b-neutral-800' : 'border-transparent'
       } ${selected ? 'text-neutral-800' : 'text-neutral-500'}`}
     >
       <Icon size={26} />
-      <p className="font-medium text-sm">{label}</p>
+      <p className="text-sm font-medium">{label}</p>
     </button>
   );
 }
