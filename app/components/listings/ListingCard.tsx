@@ -6,7 +6,7 @@ interface IProps {
   data: Listing;
 }
 
-function ListingCard({ data }: IProps) {
+function ListingCard({ data }) {
   return <div>ListingCard</div>;
 }
 
