@@ -10,12 +10,12 @@ import { Listing, Reservation } from '@prisma/client';
 import { format } from 'date-fns';
 
 import useCountries from '@/app/hooks/useCountries';
-import { SafeUser } from '@/app/types';
+import { SafeListing, SafeUser } from '@/app/types';
 import Button from '../Button';
 import HeartButton from '../HeartButton';
 
 interface IProps {
-  data: Listing;
+  data: SafeListing;
   currentUser?: SafeUser | null;
   reservation?: Reservation;
   actionLabel?: string;
