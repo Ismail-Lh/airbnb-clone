@@ -7,7 +7,7 @@ import EmptyState from '@/app/components/EmptyState';
 import ListingDetails from '@/app/components/listings/ListingDetails';
 
 interface IParams {
-  id?: string;
+  id: string;
 }
 
 async function ListingPage({ params }: { params: IParams }) {

@@ -7,6 +7,7 @@ import { SafeListing, SafeUser } from '@/app/types';
 import { categories } from '@/app/utils/constants';
 import Container from '../Container';
 import ListingHead from './ListingHead';
+import ListingInfo from './ListingInfo';
 
 interface IProps {
   listing: SafeListing & { user: SafeUser };
@@ -28,8 +29,21 @@ function ListingDetails({ listing, currentUser, reservation }: IProps) {
             id={listing.id}
             title={listing.title}
             imgSrc={listing.imageSrc}
+            locationValue={listing.locationValue}
             currentUser={currentUser}
           />
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-10">
+            <ListingInfo
+              category={category}
+              user={listing.user}
+              description={listing.description}
+              roomCount={listing.roomCount}
+              guestCount={listing.guestCount}
+              bathroomCount={listing.bathroomCount}
+              locationValue={listing.locationValue}
+            />
+          </div>
         </div>
       </div>
     </Container>
