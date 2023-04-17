@@ -9,7 +9,7 @@ import { Range } from 'react-date-range';
 import { toast } from 'react-hot-toast';
 
 import useLoginModalStore from '@/app/stores/useLoginModalStore';
-import { SafeListing, SafeUser } from '@/app/types';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 import { categories } from '@/app/utils/constants';
 import Container from '../Container';
 import ListingHead from './ListingHead';
@@ -25,10 +25,10 @@ const initialDateRange = {
 interface IProps {
   listing: SafeListing & { user: SafeUser };
   currentUser?: SafeUser | null;
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
 }
 
-function ListingDetails({ listing, currentUser, reservations = [] }: IProps) {
+function ListingDetails({ listing, currentUser, reservations }: IProps) {
   const loginModal = useLoginModalStore();
   const router = useRouter();
 
@@ -39,7 +39,7 @@ function ListingDetails({ listing, currentUser, reservations = [] }: IProps) {
   const disabledDates: Date[] = useMemo(() => {
     let dates: Date[] = [];
 
-    reservations.forEach((reservation) => {
+    reservations?.forEach((reservation) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end: new Date(reservation.endDate),
