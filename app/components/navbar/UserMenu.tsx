@@ -3,22 +3,24 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { AiOutlineMenu } from 'react-icons/ai';
 
-import { SafeUser } from '@/app/types';
+import useLoginModalStore from '@/app/stores/useLoginModalStore';
 import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
 import useRentModalStore from '@/app/stores/useRentModalStore';
-import useLoginModalStore from '@/app/stores/useLoginModalStore';
-
-import MenuItems from './MenuItems';
+import { SafeUser } from '@/app/types';
 import Avatar from '../Avatar';
+import MenuItems from './MenuItems';
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
 
 function UserMenu({ currentUser }: UserMenuProps) {
+  const router = useRouter();
+
   const registerModal = useRegisterModalStore((state) => state);
   const loginModal = useLoginModalStore((state) => state);
   const rentModal = useRentModalStore((state) => state);
@@ -41,14 +43,14 @@ function UserMenu({ currentUser }: UserMenuProps) {
         <button
           type="button"
           onClick={openRentModal}
-          className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
+          className="hidden cursor-pointer rounded-full px-4 py-3 text-sm font-semibold transition hover:bg-neutral-100 md:block"
         >
           Airbnb your home
         </button>
         <button
           type="button"
           onClick={toggleOpen}
-          className="flex flex-row items-center gap-3 border-[1px] border-neutral-200 p-4 md:py-1 md:px-2 rounded-full hover:shadow-md  transition cursor-pointer"
+          className="flex cursor-pointer flex-row items-center gap-3 rounded-full border-[1px] border-neutral-200 p-4 transition hover:shadow-md  md:px-2 md:py-1"
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
@@ -58,11 +60,14 @@ function UserMenu({ currentUser }: UserMenuProps) {
       </div>
 
       {isOpen && (
-        <div className="absolute right-0 top-12 bg-white w-[40vw] md:w-3/4 overflow-hidden text-sm rounded-xl shadow-sm">
-          <div className="flex flex-col cursor-pointer">
+        <div className="absolute right-0 top-12 w-[40vw] overflow-hidden rounded-xl bg-white text-sm shadow-sm md:w-3/4">
+          <div className="flex cursor-pointer flex-col">
             {currentUser ? (
               <>
-                <MenuItems label="My trips" onClick={() => {}} />
+                <MenuItems
+                  label="My trips"
+                  onClick={() => router.push('/trips')}
+                />
                 <MenuItems label="My favorites" onClick={() => {}} />
                 <MenuItems label="My reservations" onClick={() => {}} />
                 <MenuItems label="My properties" onClick={() => {}} />

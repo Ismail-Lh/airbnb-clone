@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Reservation } from '@prisma/client';
 import axios from 'axios';
 import { differenceInCalendarDays, eachDayOfInterval } from 'date-fns';
 import { Range } from 'react-date-range';
@@ -72,7 +71,7 @@ function ListingDetails({ listing, currentUser, reservations }: IProps) {
 
       toast.success('Listing reserved!');
       setDateRange(initialDateRange);
-      router.refresh();
+      router.push('/trips');
       setIsLoading(false);
 
       return data;

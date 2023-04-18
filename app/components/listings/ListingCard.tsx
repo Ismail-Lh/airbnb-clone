@@ -6,18 +6,17 @@
 import { useMemo } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Listing, Reservation } from '@prisma/client';
 import { format } from 'date-fns';
 
 import useCountries from '@/app/hooks/useCountries';
-import { SafeListing, SafeUser } from '@/app/types';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 import Button from '../Button';
 import HeartButton from '../HeartButton';
 
 interface IProps {
   data: SafeListing;
   currentUser?: SafeUser | null;
-  reservation?: Reservation;
+  reservation?: SafeReservation | null;
   actionLabel?: string;
   actionId?: string;
   disabled?: boolean;
@@ -60,7 +59,7 @@ function ListingCard({
     const startDate = new Date(reservation.startDate);
     const endDate = new Date(reservation.endDate);
 
-    return `${format(startDate, 'pp')} - ${format(endDate, 'pp')}`;
+    return `${format(startDate, 'PP')} - ${format(endDate, 'PP')}`;
   }, [reservation]);
 
   return (
@@ -96,7 +95,7 @@ function ListingCard({
           <Button
             disabled={disabled}
             small
-            label="actionLabel"
+            label={actionLabel}
             onClick={handleCancel}
           />
         )}
