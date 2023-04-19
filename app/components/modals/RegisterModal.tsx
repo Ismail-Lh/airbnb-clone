@@ -1,20 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
 import axios from 'axios';
+import { signIn } from 'next-auth/react';
 import { Field, FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 
-import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
 import useLoginModalStore from '@/app/stores/useLoginModalStore';
-import Modal from './Modal';
+import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
+import Button from '../Button';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
-import Button from '../Button';
+import Modal from './Modal';
 
 function RegisterModal() {
   const registerModal = useRegisterModalStore((state) => state);
@@ -33,11 +32,11 @@ function RegisterModal() {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
 
-    console.log(data);
-
-    // TODO: Handle api request
     try {
       await axios.post('/api/register', data);
+      toast.success(<b>Register Successfully!</b>);
+      registerModal.onClose();
+      loginModal.onOpen();
     } catch (error) {
       toast.error(<b>Something went wrong!!!</b>);
       setIsLoading(false);
@@ -80,7 +79,7 @@ function RegisterModal() {
   );
 
   const footerContent = (
-    <div className="flex flex-col gap-4 mt-3">
+    <div className="mt-3 flex flex-col gap-4">
       <hr />
       <Button
         outline
@@ -94,13 +93,13 @@ function RegisterModal() {
         icon={AiFillGithub}
         onClick={() => signIn('github')}
       />
-      <div className="font-light text-neutral-500 text-center mt-4">
+      <div className="mt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
           <p>Already have an account?</p>
           <button
             type="button"
             onClick={toggleModal}
-            className="text-rose-500 cursor-pointer hover:underline"
+            className="cursor-pointer text-rose-500 hover:underline"
           >
             Log in
           </button>
