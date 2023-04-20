@@ -21,9 +21,9 @@ interface UserMenuProps {
 function UserMenu({ currentUser }: UserMenuProps) {
   const router = useRouter();
 
-  const registerModal = useRegisterModalStore((state) => state);
-  const loginModal = useLoginModalStore((state) => state);
-  const rentModal = useRentModalStore((state) => state);
+  const registerModal = useRegisterModalStore();
+  const loginModal = useLoginModalStore();
+  const rentModal = useRentModalStore();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -68,7 +68,10 @@ function UserMenu({ currentUser }: UserMenuProps) {
                   label="My trips"
                   onClick={() => router.push('/trips')}
                 />
-                <MenuItems label="My favorites" onClick={() => {}} />
+                <MenuItems
+                  label="My favorites"
+                  onClick={() => router.push('/favorites')}
+                />
                 <MenuItems
                   label="My reservations"
                   onClick={() => router.push('/reservations')}
