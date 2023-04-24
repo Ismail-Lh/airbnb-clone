@@ -3,20 +3,19 @@
 'use client';
 
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 
 import useLoginModalStore from '@/app/stores/useLoginModalStore';
 import useRegisterModalStore from '@/app/stores/useRegisterModalStore';
-import Modal from './Modal';
+import Button from '../Button';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
-import Button from '../Button';
+import Modal from './Modal';
 
 function LoginModal() {
   const router = useRouter();
@@ -80,7 +79,7 @@ function LoginModal() {
   );
 
   const footerContent = (
-    <div className="flex flex-col gap-4 mt-3">
+    <div className="mt-3 flex flex-col gap-4">
       <hr />
       <Button
         outline
@@ -94,13 +93,13 @@ function LoginModal() {
         onClick={() => signIn('github')}
         icon={AiFillGithub}
       />
-      <div className="font-light text-neutral-500 text-center mt-4">
+      <div className="mt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
           <p>First time using Airbnb?</p>
           <button
             type="button"
             onClick={toggleModal}
-            className="text-rose-500 cursor-pointer hover:underline"
+            className="cursor-pointer text-rose-500 hover:underline"
           >
             Create an account
           </button>
