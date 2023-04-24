@@ -1,8 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Heading from './Heading';
+
 import Button from './Button';
+import Heading from './Heading';
 
 interface IProps {
   title?: string;
@@ -18,9 +19,9 @@ function EmptyState({
   const router = useRouter();
 
   return (
-    <div className="h-[60vh] flex flex-col gap-2 justify-center items-center">
+    <div className="flex h-[60vh] flex-col items-center justify-center gap-2">
       <Heading title={title} subTitle={subtitle} center />
-      <div className="w-48 mt-4">
+      <div className="mt-4 w-48">
         {showReset && (
           <Button
             outline

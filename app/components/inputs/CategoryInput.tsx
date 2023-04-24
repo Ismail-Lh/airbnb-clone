@@ -16,7 +16,7 @@ function CategoryInput({ label, icon: Icon, selected, onClick }: IProps) {
   return (
     <div
       onClick={() => onClick(label)}
-      className={`flex flex-col gap-3 p-4 rounded-xl border-2 hover:border-black transition cursor-pointer ${
+      className={`flex cursor-pointer flex-col gap-3 rounded-xl border-2 p-4 transition hover:border-black ${
         selected ? 'border-black' : 'border-neutral-200'
       }`}
     >

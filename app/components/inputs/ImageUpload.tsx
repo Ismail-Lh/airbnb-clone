@@ -38,13 +38,13 @@ function ImageUpload({ value, onChange }: IProps) {
           <button
             type="button"
             onClick={handleOnClick}
-            className="flex flex-col items-center justify-center gap-4 relative cursor-pointer hover:opacity-70 transition border-dashed border-2 border-neutral-300 p-20 text-neutral-600"
+            className="relative flex cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed border-neutral-300 p-20 text-neutral-600 transition hover:opacity-70"
           >
             <TbPhotoPlus size={50} />
             <h3 className="text-lg font-semibold">Click to upload</h3>
 
             {value && (
-              <div className="absolute inset-0 w-full -h-full">
+              <div className="absolute inset-0 h-full w-full">
                 <Image
                   src={value}
                   alt="Upload"

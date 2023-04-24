@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
-import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
+import { SafeListing, SafeUser } from '@/app/types';
 import Container from '../Container';
 import Heading from '../Heading';
 import ListingCard from '../listings/ListingCard';

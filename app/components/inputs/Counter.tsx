@@ -29,15 +29,15 @@ function Counter({ title, subtitle, value, onChange }: IProps) {
         <button
           type="button"
           onClick={handleReduce}
-          className="flex items-center justify-center w-10 h-10 rounded-full border-[1px] border-neutral-400 text-neutral-600 hover:opacity-80 cursor-pointer transition"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-400 text-neutral-600 transition hover:opacity-80"
         >
           <AiOutlineMinus />
         </button>
-        <p className="font-light text-xl text-neutral-600">{value}</p>
+        <p className="text-xl font-light text-neutral-600">{value}</p>
         <button
           type="button"
           onClick={handleAdd}
-          className="flex items-center justify-center w-10 h-10 rounded-full border-[1px] border-neutral-400 text-neutral-600 hover:opacity-80 cursor-pointer transition"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-[1px] border-neutral-400 text-neutral-600 transition hover:opacity-80"
         >
           <AiOutlinePlus />
         </button>

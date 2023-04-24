@@ -3,8 +3,8 @@
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import { categories } from '@/app/utils/constants';
-import Container from '../Container';
 import CategoryBox from '../CategoryBox';
+import Container from '../Container';
 
 function CategoriesMenu() {
   const params = useSearchParams();
@@ -17,7 +17,7 @@ function CategoriesMenu() {
 
   return (
     <Container>
-      <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
+      <div className="flex flex-row items-center justify-between overflow-x-auto pt-4">
         {categories.map(({ label, icon }) => (
           <CategoryBox
             key={label}

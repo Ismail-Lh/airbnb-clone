@@ -27,8 +27,6 @@ interface IProps {
   reservations?: SafeReservation[];
 }
 
-function hello() {}
-
 function ListingDetails({ listing, currentUser, reservations }: IProps) {
   const loginModal = useLoginModalStore();
   const router = useRouter();

@@ -1,12 +1,11 @@
 'use client';
 
 import { SafeUser } from '@/app/types';
-
 import Container from '../Container';
+import CategoriesMenu from './CategoriesMenu';
 import Logo from './Logo';
 import Search from './Search';
 import UserMenu from './UserMenu';
-import CategoriesMenu from './CategoriesMenu';
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -14,10 +13,10 @@ interface NavbarProps {
 
 function Navbar({ currentUser }: NavbarProps) {
   return (
-    <div className="fixed bg-white z-10 w-full shadow-sm">
-      <div className="py-4 border-b-[1px]">
+    <div className="fixed z-10 w-full bg-white shadow-sm">
+      <div className="border-b-[1px] py-4">
         <Container>
-          <div className="flex items-center flex-row justify-between gap-3 md:gap-0">
+          <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
             <Logo />
             <Search />
             <UserMenu currentUser={currentUser} />
