@@ -1,9 +1,20 @@
 import prisma from '@/app/libs/prismadb';
 import { SafeListing } from '../types';
 
-export default async function getListings() {
+export interface IListingParams {
+  userId?: string;
+}
+
+export default async function getListings(params: IListingParams) {
   try {
+    const { userId } = params;
+
+    const query: any = {};
+
+    if (userId) query.userId = userId;
+
     const listings = await prisma.listing.findMany({
+      where: query,
       orderBy: { createdAt: 'desc' },
     });
 
