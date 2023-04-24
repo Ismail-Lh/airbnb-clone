@@ -49,6 +49,7 @@ specifiers:
   react-is: '>= 16.8.0'
   react-leaflet: ^4.2.1
   react-select: ^5.7.2
+  react-spinners: ^0.13.8
   tailwindcss: ^3.3.1
   typescript: 5.0.3
   world-countries: ^4.0.0
@@ -79,6 +80,7 @@ dependencies:
   react-is: 16.13.1
   react-leaflet: 4.2.1_yydtlhsdonbqao6vgvkwhv2zki
   react-select: 5.7.2_6hfup3cnntiu7o7txcf7sadj7u
+  react-spinners: 0.13.8_biqbaboplfbrettd7655fr4n2y
   typescript: 5.0.3
   world-countries: 4.0.0
   zustand: 4.3.7_react@18.2.0
@@ -5691,6 +5693,19 @@ packages:
       use-isomorphic-layout-effect: 1.1.2_b7lksjcz5zr4rqebyeqormarua
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /react-spinners/0.13.8_biqbaboplfbrettd7655fr4n2y:
+    resolution:
+      {
+        integrity: sha512-3e+k56lUkPj0vb5NDXPVFAOkPC//XyhKPJjvcGjyMNPWsBKpplfeyialP74G7H7+It7KzhtET+MvGqbKgAqpZA==,
+      }
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
