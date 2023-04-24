@@ -29,7 +29,3 @@ export async function POST(req: Request) {
 
   return NextResponse.json(listingAndReservation);
 }
-
-export async function GET(request: Request) {
-  return request;
-}

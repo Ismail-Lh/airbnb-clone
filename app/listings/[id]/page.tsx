@@ -1,5 +1,3 @@
-import React from 'react';
-
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import getListingById from '@/app/actions/getListingById';
 import getReservations from '@/app/actions/getReservations';
@@ -10,6 +8,8 @@ import ListingDetails from '@/app/components/listings/ListingDetails';
 interface IParams {
   id: string;
 }
+
+export const dynamic = 'force-dynamic';
 
 async function ListingPage({ params }: { params: IParams }) {
   const listing = await getListingById(params);

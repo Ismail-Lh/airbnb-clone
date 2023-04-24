@@ -9,6 +9,8 @@ interface IProps {
   searchParams: IListingParams;
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home({ searchParams }: IProps) {
   const listings = await getListings(searchParams);
 

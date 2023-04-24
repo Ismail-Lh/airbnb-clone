@@ -26,7 +26,3 @@ export async function DELETE(req: Request, { params }: { params: IParams }) {
 
   return NextResponse.json(listing);
 }
-
-export async function GET(request: Request) {
-  return request;
-}

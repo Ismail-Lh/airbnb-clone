@@ -19,7 +19,3 @@ export async function POST(req: Request) {
 
   return NextResponse.json(user);
 }
-
-export async function GET(request: Request) {
-  return request;
-}

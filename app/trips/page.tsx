@@ -4,6 +4,8 @@ import ClientOnly from '../components/ClientOnly';
 import EmptyState from '../components/EmptyState';
 import TripsDetails from '../components/trips/TripsDetails';
 
+export const dynamic = 'force-dynamic';
+
 async function TripsPage() {
   const currentUser = await getCurrentUser();
   const reservations = await getReservations({ userId: currentUser?.id });

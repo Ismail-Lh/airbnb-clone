@@ -4,6 +4,8 @@ import ClientOnly from '@/app/components/ClientOnly';
 import EmptyState from '@/app/components/EmptyState';
 import FavoriteDetails from '../components/favorites/FavoriteDetails';
 
+export const dynamic = 'force-dynamic';
+
 async function ListingPage() {
   const listings = await getFavoriteListings();
   const currentUser = await getCurrentUser();

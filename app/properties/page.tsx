@@ -4,6 +4,8 @@ import ClientOnly from '../components/ClientOnly';
 import EmptyState from '../components/EmptyState';
 import PropertiesDetails from '../components/properties/PropertiesDetails';
 
+export const dynamic = 'force-dynamic';
+
 async function PropertiesPage() {
   const currentUser = await getCurrentUser();
   const listings = await getListings({
