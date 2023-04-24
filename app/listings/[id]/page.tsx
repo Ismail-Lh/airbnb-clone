@@ -27,6 +27,7 @@ async function ListingPage({ params }: { params: IParams }) {
   return (
     <ClientOnly>
       <ListingDetails
+        // @ts-ignore
         listing={listing}
         currentUser={currentUser}
         reservations={reservations}
